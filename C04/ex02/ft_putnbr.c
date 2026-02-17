@@ -12,16 +12,14 @@
 
 #include <stdio.h>
 #include <unistd.h>
+#include <limits.h>
 
-void	ft_putnbr(int nb)
 
+void	tab_convert(int nb)
 {
 	int index;
+	index=0;
 	char tab_char_int[10];
-	index = 0;
-	if (nb < 0)
-		nb = -nb;
-	
 	while (nb != 0)
 	{
 		tab_char_int[index] = (nb % 10) + '0';
@@ -29,16 +27,34 @@ void	ft_putnbr(int nb)
 		index += 1;
 	}
 	tab_char_int[index] = '\0';
-
+	index-=1;
 	while (index >= 0)
 	{
 		write(1, &tab_char_int[index], 1);
 		index--;
 	}
 }
+void	ft_putnbr(int nb)
+
+{
+	if (nb == -2147483648)
+	{
+		write(1,"-2147483648",11);
+	}
+	else if (nb < 0)
+	{
+		nb = -nb;
+		write(1,"-",1);
+		tab_convert(nb);
+		
+	}else
+	{
+		tab_convert(nb);
+	}
+}
 
 int	main(void)
 
-{
-	ft_putnbr(288);
+{	
+	ft_putnbr(-60);
 }
