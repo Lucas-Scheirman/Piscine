@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
 
 int	comparstr(char *str, char *to_find, int o)
 {
@@ -56,7 +56,7 @@ char	*ft_strstr(char *str, char *to_find)
 int	main(void)
 {
 	char	a[] = "42 1337 Network 2021 piscine Benguerir Khouribga";
-	char	b[] = "";
+	char	b[] = " ";
 
 	printf("%s\n", ft_strstr(a, b));
 }*/

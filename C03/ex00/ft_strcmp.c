@@ -23,3 +23,18 @@ int	ft_strcmp(char *s1, char *s2)
 	}
 	return (0);
 }
+
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char *str1 = "Bonjour";
+	char *str2 = "Bonsoir";
+
+	int result = ft_strcmp(str1, str2);
+
+	printf("%d", result);
+
+	return (0);
+}  */

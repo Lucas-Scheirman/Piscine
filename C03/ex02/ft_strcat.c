@@ -17,15 +17,12 @@ char	*ft_strcat(char *dest, char *src)
 
 	i = 0;
 	o = 0;
-
 	while (dest[i])
 		i++;
 	while (src[o])
 	{
-		
 		dest[i] = src[o];
 		o++;
-
 		i++;
 	}
 	dest[i] = '\0';
@@ -41,4 +38,4 @@ int	main(void)
 	char	b[] = "dssdf";
 
 	printf("%s", ft_strcat(a, b));
-}
+}*/
