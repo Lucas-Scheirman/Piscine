@@ -1,5 +1,14 @@
-
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/17 18:10:58 by lucas             #+#    #+#             */
+/*   Updated: 2026/02/17 18:11:05 by lucas            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 int	ft_strlen(char *str)
 {
@@ -13,7 +22,9 @@ int	ft_strlen(char *str)
 	return (i);
 }
 /*
+#include <stdio.h>
+
 int	main(void)
 {
-    printf("%d",ft_strlen("fdgfddfg"));
-}
+	printf("%d",ft_strlen("fdgfddfg"));
+}*/

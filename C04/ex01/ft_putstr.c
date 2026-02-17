@@ -1,5 +1,14 @@
-#include <stdio.h>
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/17 18:11:23 by lucas             #+#    #+#             */
+/*   Updated: 2026/02/17 18:11:28 by lucas            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 void	ft_putstr(char *str)
 
@@ -15,6 +24,9 @@ void	ft_putstr(char *str)
 }
 
 /*
+#include <stdio.h>
+#include <unistd.h>
+
 int	main(void)
 {
 	ft_putstr("sfsfd");

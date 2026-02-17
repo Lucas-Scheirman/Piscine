@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lscheirm <lscheirm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 11:27:54 by lscheirm          #+#    #+#             */
-/*   Updated: 2026/02/12 20:16:20 by lscheirm         ###   ########.fr       */
+/*   Updated: 2026/02/17 20:01:56 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 
 void	concat(int len_dest, int size, char *dest, char *src)
 {
