@@ -12,31 +12,57 @@
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-    int indexDest=0;
-    int indexSrc=0;
+    int index_dest;
+    int index_src;
+    int size_str;
+    index_dest=0;
+    index_src=0;
+    
 
-
-	while(dest[indexDest])
+    while(dest[index_dest])
     {
-        indexDest ++;      
+        index_dest++;
     }
-    while (dest[indexSrc])
+     
+    while(src[index_src])
     {
-        indexSrc ++;
+        index_src++;
+    } 
+    if(dest[index_dest] != '\0')
+    {
+        return size + index_src;
+    } 
+    size_str=(index_dest + index_src)-1;
+
+    if(size_str >= size)
+    {
+        return size_str;
+    }
+    else if (size_str < size && size < 2)
+    
+        return size_str;
+    else
+    {
+        concat(index_dest,0);
+        return size_str;
     }
     
-    if (size==0)
-    {
-        return 
-    }
-
-    if  (indexSrc + indexDest -1 > size)
-    {return (indexSrc + indexDest);}
-
-    else if (indexSrc + inde==)
-  
     
 }
+void concat(int index_dest,int index_src,int size)
+{
+    while(str[index_dest] && index_dest < size)
+    {
+        dest[index_dest]=src[index_src];
+        index_dest++;
+        index_src++;
+        if(src[index_src]=='\0')
+        {
+            dest[index_dest]='\0';
+        }
+    }
+}
+
 /*
 DESCRIPTION
      Les fonctions strlcpy() et strlcat() copient et concatènent des chaînes 
