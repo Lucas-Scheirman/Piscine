@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lscheirm <lscheirm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 18:11:23 by lucas             #+#    #+#             */
-/*   Updated: 2026/02/17 18:11:28 by lucas            ###   ########.fr       */
+/*   Updated: 2026/02/18 18:00:05 by lscheirm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
 void	ft_putstr(char *str)
-
 {
-	int i;
-	i = 0;
+	int	i;
 
+	i = 0;
 	while (str[i])
 	{
 		write(1, &str[i], 1);
@@ -25,9 +26,10 @@ void	ft_putstr(char *str)
 
 /*
 #include <stdio.h>
-#include <unistd.h>
 
 int	main(void)
 {
 	ft_putstr("sfsfd");
-}*/
+	return (0);
+}
+*/
