@@ -1,42 +1,64 @@
 
-void	ft_putnbr_base(int nbr, char *base)
+#include <unistd.h>
+#include <stdio.h>
+void	write_index_base(char *tab_resultat, int index_2)
 {
-	int	len_base;
-	int	len_base2;
-
-	len_base2 = 0;
-	len_base = 0;
-	while (base[len_base])
+	while(index_2 >=0)
 	{
-		if (!((base[len_base] >= "a" && base[len_base] <= "z")
-				|| (base[len_base] >= "A" && base[len_base] <= "Z")
-				|| (base[len_base] >= "0" && base[len_base] <= "9")))
-			return (0);
-		while (base[len_base2])
-		{
-			if (ba)
-			len_base2++:
-		}
-		len_base2=0;
-		len_base++;
+		write(1, &tab_resultat[index_2], 1);
+		index_2--;
 	}
-	len_base -= 1;
+}
+void write_result(int index, int nbr, char *base)
+{
+	char tab_resultat[12];
+	int index_2;
+	index_2=0;
 	while (nbr != 0)
 	{
-		nbr / len_base;
-		write_index_base(base, nbr, len_base)
+		tab_resultat[index_2]=base[nbr % index];
+		nbr =nbr / index;
+		index_2++;
 	}
+	tab_resultat[index_2]='\0';
+	write_index_base(tab_resultat,index_2-1);
 }
 
-int	params_true(char *base, int nbr, int len_base)
+
+void	ft_putnbr_base(int nbr, char *base)
 {
+	int	index;
+	int	index_2;
+	index_2 = 0;
+	index = 0;
+	if (base[index]=='\0')
+	{
+		return;
+	}
+	while (base[index])
+	{
+		if (!((base[index] >= 'a' && base[index] <= 'z')|| (base[index] >= 'A' && base[index] <= 'Z')|| (base[index] >= '0' && base[index] <= '9')) )
+			return;
+		while (base[index_2])
+		{
+			if (base[index]==base[index_2] && index != index_2)
+				return;
+			index_2++;
+		}
+		index_2=0;
+		index++;
+	}
+	if (index==1)
+		return;
+	write_result(index,nbr,base);
+
 }
 
-void	write_index_base(char *base, int index)
-
+int main()
 {
-	write(1, &base[index], 1)
+	ft_putnbr_base(42,"fga");
 }
+
 
 /*
 Chapitre VIII
