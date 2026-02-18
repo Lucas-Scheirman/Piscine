@@ -3,16 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lscheirm <lscheirm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 18:11:36 by lucas             #+#    #+#             */
-/*   Updated: 2026/02/17 20:53:01 by lucas            ###   ########.fr       */
+/*   Updated: 2026/02/18 16:34:52 by lscheirm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <limits.h>
 
 
 void	tab_convert(int nb)
@@ -52,9 +49,12 @@ void	ft_putnbr(int nb)
 		tab_convert(nb);
 	}
 }
+/*#include <stdio.h>
+#include <unistd.h>
+#include <limits.h>
 
 int	main(void)
 
 {	
 	ft_putnbr(-60);
-}
+}*/
