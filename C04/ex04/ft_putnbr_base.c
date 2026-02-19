@@ -6,7 +6,7 @@
 /*   By: lscheirm <lscheirm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 00:56:58 by lscheirm          #+#    #+#             */
-/*   Updated: 2026/02/19 02:09:46 by lscheirm         ###   ########.fr       */
+/*   Updated: 2026/02/19 05:15:14 by lscheirm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ void	ft_putnbr_base(int nbr, char *base)
 	}
 	base_true(base,nbr_long);
 }
+/*
 int	main(void)
 {
 	ft_putnbr_base(-2147483647, "fas");
-}
+}*/
