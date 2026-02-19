@@ -6,7 +6,7 @@
 /*   By: lscheirm <lscheirm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 00:56:58 by lscheirm          #+#    #+#             */
-/*   Updated: 2026/02/19 04:39:33 by lscheirm         ###   ########.fr       */
+/*   Updated: 2026/02/19 05:07:27 by lscheirm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,16 @@
 
 
 
-
+int str_len(char *str)
+{
+	int index;
+	index = 0;
+	while (str[index])
+	{
+		index++;	
+	}
+	return index;
+}
 
 int ft_atoi_base(char *str, char *base)
 {
@@ -23,15 +32,11 @@ int ft_atoi_base(char *str, char *base)
 	int index_2;
 	int nb;
 	int len_base;
+	
 	nb=0;
 	index=0;
 	index_2=0;
-	while (str[index])
-	{
-		index++;	
-	}
-	len_base=index;
-	index=0;
+	len_base=str_len(str);
 	while(str[index])
 	{
 		while(base[index_2])
@@ -39,14 +44,18 @@ int ft_atoi_base(char *str, char *base)
 			if(str[index]==base[index_2])
 			{
 				nb = (nb * len_base) + (index_2);
+				break;
 			}
-			index_2++;
+			index_2++;	
 		}
+		if (base[index_2]=='\0')
+			return 0;
 		index_2=0;
 		index++;
 	}
 	return nb;
 }
+
 int main()
 {
 	printf("%d",ft_atoi_base("ghjgh","ghj"));
