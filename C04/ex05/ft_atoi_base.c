@@ -3,116 +3,112 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lscheirm <lscheirm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 00:56:58 by lscheirm          #+#    #+#             */
-/*   Updated: 2026/02/19 05:28:26 by lscheirm         ###   ########.fr       */
+/*   Created: 2026/02/19 22:37:09 by lucas             #+#    #+#             */
+/*   Updated: 2026/02/19 22:37:13 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
-int calculate_nbr(char *str, char *base,int len_base)
+
+int	isspace_pass(char *str)
 {
-	int index;
-	int index_2;
-	int nb;
-	
-	nb=0;
-	index=0;
-	index_2=0;
-	while(str[index])
+	int	i;
+
+	i = 0;
+	while ((str[i]) && (str[i] <= 32))
+		i++;
+	return (i);
+}
+
+int	str_len(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		while(base[index_2])
+		i++;
+	}
+	return (i);
+}
+
+int	calculate_nbr(char *str, char *base, int i, int neg)
+{
+	int	j;
+	int	nb;
+	int	len_base;
+
+	nb = 0;
+	len_base = str_len(base);
+	while (str[i])
+	{
+		while (base[j])
 		{
-			if(str[index]==base[index_2])
+			if (str[i] == base[j])
 			{
-				nb = (nb * len_base) + (index_2);
-				break;
+				nb = (nb * len_base) + (j);
+				break ;
 			}
-			index_2++;	
+			j++;
 		}
-		if (base[index_2]=='\0')
-			return 0;
-		index_2=0;
-		index++;
+		if (base[j] == '\0')
+			return (0);
+		j = 0;
+		i++;
 	}
-	return nb;
+	if (neg % 2 == 1)
+		return (-nb);
+	return (nb);
 }
-int base_true (char *base)
-{
-	int	index;
-	int	index_2;
-	index = 0;
-	index_2 = 0;
-	while (base[index])
-	{
-		if ((base[index] == '+') || (base[index] == '-') || (base[index] == ' ' && (base[index] <= 126)))
-    		return 0;
 
-		while (base[index_2])
+int	base_true(char *base)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if (str_len(base) < 2)
+		return (0);
+	while (base[i])
+	{
+		if (base[i] == '+' || base[i] == '-' || (base[i] <= 32))
+			return (0);
+		while (base[j])
 		{
-			if (base[index] == base[index_2] && index != index_2)
-				return 0;
-			index_2++;
+			if (base[i] == base[j] && i != j)
+				return (0);
+			j++;
 		}
-		index_2 = 0;
-		index++;
+		j = 0;
+		i++;
 	}
-	return 1 ;
+	return (1);
 }
 
-
-int str_len(char *str)
+int	ft_atoi_base(char *str, char *base)
 {
-	int index;
-	index = 0;
-	while (str[index])
+	int	neg;
+	int	i;
+
+	neg = 0;
+	i = isspace_pass(str);
+	while ((str[i] == '+') || (str[i] == '-'))
 	{
-		index++;	
+		if (str[i] == '-')
+			neg++;
+		i++;
 	}
-	return index;
-}
-
-int ft_atoi_base(char *str, char *base)
-{
-	
-	int len_base;
-	
-	
-	if (!(&base_true))
+	if (!(base_true(base)))
 	{
-		return 0;
+		return (0);
 	}
-	len_base=str_len(str);
-	return (calculate_nbr(str,base,len_base));
+	return (calculate_nbr(str, base, i, neg));
 }
-
-
-int main()
-{
-	printf("%d",ft_atoi_base("ghjgh","ghj"));
-}
-
-
 /*
-Écrivez une fonction qui convertit la partie initiale de la chaîne pointée par `str`
-
-en une représentation entière.
-
-• `str` est dans une base spécifique, donnée en deuxième paramètre.
-
-• À l'exception de la base, la fonction doit se comporter exactement comme `ft_atoi`.
-
-• Si un argument invalide est fourni, la fonction doit renvoyer 0.
-
-Exemples d'arguments invalides :
-
-◦ La base est vide ou ne contient qu'un seul caractère.
-
-◦ La base contient des caractères dupliqués.
-
-◦ La base contient les caractères « + », « - » ou des espaces.
-
-• Le prototype de la fonction doit être le suivant :
-*/
+int	main(void)
+{
+	printf("%d", ft_atoi_base("-ghjgh", "ghj"));
+}*/

@@ -3,82 +3,91 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lscheirm <lscheirm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 00:56:58 by lscheirm          #+#    #+#             */
-/*   Updated: 2026/02/19 05:15:14 by lscheirm         ###   ########.fr       */
+/*   Created: 2026/02/17 00:56:58 by lscheirm          #+#    #+#             */
+/*   Updated: 2026/02/19 22:35:55 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	write_index_base(char *tab_resultat, int index_2)
+void	write_base_convert(char *tab_resultat, int j)
 {
-	while (index_2 >= 0)
+	while (j >= 0)
 	{
-		write(1, &tab_resultat[index_2], 1);
-		index_2--;
+		write(1, &tab_resultat[j], 1);
+		j--;
 	}
 }
 
-void	write_result(int index, long nbr_long, char *base)
+void	write_result(int i, long nbr_long, char *base)
 {
 	char	tab_resultat[64];
-	int		index_2;
+	int		j;
 
-	index_2 = 0;
+	j = 0;
 	while (nbr_long != 0)
 	{
-		tab_resultat[index_2] = base[nbr_long % index];
-		nbr_long = nbr_long / index;
-		index_2++;
+		tab_resultat[j] = base[nbr_long % i];
+		nbr_long = nbr_long / i;
+		j++;
 	}
-	tab_resultat[index_2] = '\0';
-	write_index_base(tab_resultat, index_2 - 1);
+	tab_resultat[j] = '\0';
+	write_base_convert(tab_resultat, j - 1);
 }
-void base_true (char *base, long nbr_long)
-{
-	int	index;
-	int	index_2;
-	index = 0;
-	index_2 = 0;
-	while (base[index])
-	{
-		if ((base[index] == '+') || (base[index] == '-') || (base[index] == ' ' && (base[index] <= 126)))
-    		return;
 
-		while (base[index_2])
+int	base_true(char *base)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (base[i])
+	{
+		if (base[i] <= 32 || base[i] == '+' || base[i] == '-')
+			return (0);
+		while (base[j])
 		{
-			if (base[index] == base[index_2] && index != index_2)
-				return ;
-			index_2++;
+			if (base[i] == base[j] && i != j)
+				return (0);
+			j++;
 		}
-		index_2 = 0;
-		index++;
+		j = 0;
+		i++;
 	}
-	write_result(index, nbr_long, base);
+	return (i);
 }
+
 void	ft_putnbr_base(int nbr, char *base)
 {
-	long nbr_long;
+	long	nbr_long;
+	int		i;
+
+	if ((base[0] == '\0') || (base[1] == '\0'))
+		return ;
 	nbr_long = nbr;
-	
-	if ((base[0]== '\0') || (base[1] == '\0'))
-		return;
-	if(nbr_long == 0)
+	if (nbr_long == 0)
 	{
-		write(1, "0", 1);
-		return;
+		write(1, &base[0], 1);
+		return ;
 	}
-	if(nbr_long<0)
+	if (nbr_long < 0)
 	{
 		write(1, "-", 1);
 		nbr_long = -nbr_long;
 	}
-	base_true(base,nbr_long);
+	i = base_true(base);
+	if (i != 0)
+		write_result(i, nbr_long, base);
+	else
+		return ;
 }
+
 /*
 int	main(void)
 {
-	ft_putnbr_base(-2147483647, "fas");
-}*/
+	ft_putnbr_base(0, "fas");
+}
+*/
