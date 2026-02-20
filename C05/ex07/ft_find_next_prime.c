@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lscheirm <lscheirm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 00:00:00 by lscheirm          #+#    #+#             */
-/*   Updated: 2026/02/12 00:00:00 by lscheirm         ###   ########.fr       */
+/*   Created: 2026/02/19 22:52:13 by lucas             #+#    #+#             */
+/*   Updated: 2026/02/20 02:44:49 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 int	nombreprime(int i, int nb, int o)
 {
 	while (i <= nb)
@@ -35,7 +36,7 @@ int	ft_find_next_prime(int nb)
 
 	i = 1;
 	o = 0;
-	if (nb < 1)
-		return (0);
+	if (nb <= 1)
+		return (2);
 	return (nombreprime(i, nb, o));
 }

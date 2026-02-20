@@ -3,26 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lscheirm <lscheirm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 00:00:00 by lscheirm          #+#    #+#             */
-/*   Updated: 2026/02/12 00:00:00 by lscheirm         ###   ########.fr       */
+/*   Updated: 2026/02/20 02:48:05 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_fibonacci(int index)
 {
-	int	nb;
-
-	nb = 0;
+	if (index < 0)
+		return (-1);
 	if (index == 0)
 		return (0);
 	if (index == 1)
 		return (1);
 	if (index == 2)
 		return (1);
-	if (index == 3)
-		return (2);
-	nb = (ft_fibonacci(index - 1)) + (ft_fibonacci(index - 2));
-	return (nb);
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
+
+/*
+int	main(void)
+{
+	printf("%d", ft_fibonacci(10));
+	return (0);
+}*/

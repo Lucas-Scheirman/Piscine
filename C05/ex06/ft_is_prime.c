@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lscheirm <lscheirm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 00:00:00 by lscheirm          #+#    #+#             */
-/*   Updated: 2026/02/12 00:00:00 by lscheirm         ###   ########.fr       */
+/*   Updated: 2026/02/19 23:00:53 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,9 @@ int	ft_is_prime(int nb)
 	}
 	return (1);
 }
+/*
+int	main(void)
+{
+	ft_is_prime(17);
+	return (0);
+}*/

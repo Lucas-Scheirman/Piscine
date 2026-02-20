@@ -6,7 +6,7 @@
 /*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 22:37:09 by lucas             #+#    #+#             */
-/*   Updated: 2026/02/19 22:37:13 by lucas            ###   ########.fr       */
+/*   Updated: 2026/02/20 12:36:10 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	calculate_nbr(char *str, char *base, int i, int neg)
 	len_base = str_len(base);
 	while (str[i])
 	{
+		j = 0;
 		while (base[j])
 		{
 			if (str[i] == base[j])
@@ -55,7 +56,6 @@ int	calculate_nbr(char *str, char *base, int i, int neg)
 		}
 		if (base[j] == '\0')
 			return (0);
-		j = 0;
 		i++;
 	}
 	if (neg % 2 == 1)

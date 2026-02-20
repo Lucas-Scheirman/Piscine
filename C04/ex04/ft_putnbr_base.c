@@ -6,35 +6,35 @@
 /*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 00:56:58 by lscheirm          #+#    #+#             */
-/*   Updated: 2026/02/19 22:35:55 by lucas            ###   ########.fr       */
+/*   Updated: 2026/02/19 22:48:41 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	write_base_convert(char *tab_resultat, int j)
+void	write_base_convert(char *tab_result, int j)
 {
 	while (j >= 0)
 	{
-		write(1, &tab_resultat[j], 1);
+		write(1, &tab_result[j], 1);
 		j--;
 	}
 }
 
 void	write_result(int i, long nbr_long, char *base)
 {
-	char	tab_resultat[64];
+	char	tab_result[64];
 	int		j;
 
 	j = 0;
 	while (nbr_long != 0)
 	{
-		tab_resultat[j] = base[nbr_long % i];
+		tab_result[j] = base[nbr_long % i];
 		nbr_long = nbr_long / i;
 		j++;
 	}
-	tab_resultat[j] = '\0';
-	write_base_convert(tab_resultat, j - 1);
+	tab_result[j] = '\0';
+	write_base_convert(tab_result, j - 1);
 }
 
 int	base_true(char *base)
