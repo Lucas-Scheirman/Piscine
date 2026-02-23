@@ -1,36 +1,51 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/23 13:34:13 by lucas             #+#    #+#             */
+/*   Updated: 2026/02/23 13:34:13 by lucas            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <stdlib.h>
-char *ft_strdup(char *src)
+
+char	*ft_strdup(char *src)
 {
-    int i = 0;
-    char *copy;
+	int		i;
+	char	*copy;
 
-    while (src[i])
-        i++;
-
-    malloc(sizeof(char) * (i + 1));
-    if (!copy)
-        return NULL;
-
-    i = 0;
-    while ((copy[i] = src[i]))
-        i++;
-
-    return copy;
+	i = 0;
+	while (src[i])
+		i++;
+	copy = malloc(sizeof(char) * (i + 1));
+	if (!copy)
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		copy[i] = src[i];
+		i++;
+	}
+	copy[i] = '\0';
+	return (copy);
 }
-/*
-int main()
-{
-    //printf("%s", ft_strdup("klfggdf"));
-    int i;
-    i=0;
-    char *a;
-    a=ft_strdup("dfdss");
-    while(a[i])
 
-    {
-        write(1,&a[i],1);
-        i++;
-    }
-}*/
+/*
+int	main(void)
+{
+	int		i;
+	char	*a;
+
+	i = 0;
+	a = ft_strdup("dfdss");
+	while (a[i])
+	{
+		write(1, &a[i], 1);
+		i++;
+	}
+}
+*/
