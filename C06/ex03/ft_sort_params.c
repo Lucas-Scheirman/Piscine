@@ -24,11 +24,13 @@ int	main(int argc, char **argv)
 		j=0;
 		while (argv[i][j])
 		{
-			if(argv[i+1][j] <argv[i][j])
+			if(argv[i+1][j] < argv[i][j] )
 			{
-				temp =argv[i][j];
+				*temp =argv[i][j];
 				argv[i][j]=argv[i+1][j];
-				argv[i+1][j]=temp;
+				argv[i+1][j]=*temp;
+				i=0;
+				j=0;
 				break;
 			}
 			j++;
@@ -36,5 +38,3 @@ int	main(int argc, char **argv)
 		i++;
 	}
 }
-//Si le mot de lindex 2 est plus petit lexicologiquemet que le mot alors je swap.
-/*et je remet j a zero et je remet i a 0. du cou*/
