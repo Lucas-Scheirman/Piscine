@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
+/*   putnbr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 09:44:33 by lscheirm          #+#    #+#             */
-/*   Updated: 2026/02/25 16:41:26 by lucas            ###   ########.fr       */
+/*   Created: 2026/02/25 05:39:50 by lucas             #+#    #+#             */
+/*   Updated: 2026/02/25 05:40:53 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*ft_sort_int_tab(int *tab, int size)
+#include <unistd.h>
+
+void	ft_putnbr(int nb)
 {
-	int	i;
-	
-	return (tab);
+	char	c;
+
+	if (nb >= 10)
+		ft_putnbr(nb / 10);
+	c = nb % 10 + '0';
+	write(1, &c, 1);
 }
+/*
+int	main(void)
+{
+	ft_putnbr(42);
+}*/

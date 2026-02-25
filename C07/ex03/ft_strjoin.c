@@ -9,7 +9,7 @@
 /*   Updated: 2026/02/24 15:45:25 by lscheirm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include <stdlib.h>
 
 int	str_len(char **strs, char *sep, int size)
@@ -108,6 +108,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	return (str_concatenate);
 }
 /*
+#include <stdio.h>
 int    main(void)
 {
     char *strs[] = {"fsfsf", "dfsd", "dfsfsd"};

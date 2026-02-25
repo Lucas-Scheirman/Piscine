@@ -6,7 +6,7 @@
 /*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 00:56:58 by lscheirm          #+#    #+#             */
-/*   Updated: 2026/02/19 22:48:41 by lucas            ###   ########.fr       */
+/*   Updated: 2026/02/25 04:30:22 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	base_true(char *base)
 	j = 0;
 	while (base[i])
 	{
-		if (base[i] <= 32 || base[i] == '+' || base[i] == '-')
+		if (base[i] == '+' || base[i] == '-')
 			return (0);
 		while (base[j])
 		{
@@ -68,6 +68,9 @@ void	ft_putnbr_base(int nbr, char *base)
 	if ((base[0] == '\0') || (base[1] == '\0'))
 		return ;
 	nbr_long = nbr;
+	i = base_true(base);
+	if (i == 0)
+		return ;
 	if (nbr_long == 0)
 	{
 		write(1, &base[0], 1);
@@ -78,11 +81,7 @@ void	ft_putnbr_base(int nbr, char *base)
 		write(1, "-", 1);
 		nbr_long = -nbr_long;
 	}
-	i = base_true(base);
-	if (i != 0)
-		write_result(i, nbr_long, base);
-	else
-		return ;
+	write_result(i, nbr_long, base);
 }
 
 /*

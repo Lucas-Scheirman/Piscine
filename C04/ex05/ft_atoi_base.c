@@ -6,7 +6,7 @@
 /*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 22:37:09 by lucas             #+#    #+#             */
-/*   Updated: 2026/02/20 12:36:10 by lucas            ###   ########.fr       */
+/*   Updated: 2026/02/25 04:35:24 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ int	base_true(char *base)
 		return (0);
 	while (base[i])
 	{
-		if (base[i] == '+' || base[i] == '-' || (base[i] <= 32))
+		if (base[i] == '+' || base[i] == '-' || (base[i] >= 9 && base[i] <= 13)
+			|| base[i] == 32)
 			return (0);
 		while (base[j])
 		{
