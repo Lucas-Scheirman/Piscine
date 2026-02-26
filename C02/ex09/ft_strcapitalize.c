@@ -3,19 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-<<<<<<< HEAD
-/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/26 11:25:13 by lucas             #+#    #+#             */
-/*   Updated: 2026/02/26 11:32:46 by lucas            ###   ########.fr       */
-=======
 /*   By: lscheirm <lscheirm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 11:25:13 by lucas             #+#    #+#             */
-/*   Updated: 2026/02/26 20:04:37 by lscheirm         ###   ########.fr       */
->>>>>>> c63aa253c496d7fed9722d6163552ed2a235959b
+/*   Updated: 2026/02/26 22:22:29 by lscheirm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int	is_charset(char *str, int i)
+{
+	if (!((str[i] >= 'a' && str[i] <= 'z')
+			|| (str[i] >= 'A' && str[i] <= 'Z')
+			|| (str[i] >= '0' && str[i] <= '9')))
+	{
+		return (1);
+	}
+	return (0);
+}
 
 char	*ft_strcapitalize(char *str)
 {
@@ -24,25 +28,21 @@ char	*ft_strcapitalize(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if ((str[i] >= 'A' && str[i] <= 'Z'))
-		{
+		if (str[i] >= 'A' && str[i] <= 'Z')
 			str[i] = str[i] + 32;
-		}
 		i++;
 	}
-	if ((str[0] >= 'a' && str[0] <= 'z'))
+	if (str[0] >= 'a' && str[0] <= 'z')
 		str[0] = str[0] - 32;
-	i = 1;
+	i = 0;
 	while (str[i])
 	{
-<<<<<<< HEAD
-		if ((str[i] >= 'a' && str[i] <= 'z') && (str[i - 1] == ' '
-				|| str[i - 1] == '+' || str[i - 1] == '-'))
-=======
-		if ((str[i] >= 'a' && str[i] <= 'z') && (!(str[i - 1] >= 'a' && str[i - 1] <= 'z') || (!(str[i - 1] >= 'A' && str[i - 1] <= 'Z'))))
->>>>>>> c63aa253c496d7fed9722d6163552ed2a235959b
+		if (is_charset(str, i))
 		{
-			str[i] = str[i] - 32;
+			while (str[i] && is_charset(str, i))
+				i++;
+			if (str[i] >= 'a' && str[i] <= 'z')
+				str[i] = str[i] - 32;
 		}
 		i++;
 	}
@@ -51,8 +51,11 @@ char	*ft_strcapitalize(char *str)
 
 /*
 #include <stdio.h>
-int main ()
+int main()
 {
-    char tab[]="hi, how are you? 42words forty-two; fifty+and+one";
-    printf("%s",ft_strcapitalize(tab));
+	char	str[] = "salut, comment tu vas ? 
+	42mots quarante-deux; cinquante+et+un";
+
+	printf("%s\n", ft_strcapitalize(str));
+	return (0);
 }*/
