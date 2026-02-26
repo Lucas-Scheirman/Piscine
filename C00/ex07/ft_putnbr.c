@@ -1,0 +1,62 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lucas <lucas@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/26 00:17:33 by lucas             #+#    #+#             */
+/*   Updated: 2026/02/26 01:44:09 by lucas            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
+
+static void	tab_convert(int nb)
+{
+	int		index;
+	char	tab_char_int[12];
+
+	index = 0;
+	while (nb != 0)
+	{
+		tab_char_int[index] = (nb % 10) + '0';
+		nb = nb / 10;
+		index++;
+	}
+	tab_char_int[index] = '\0';
+	index--;
+	while (index >= 0)
+	{
+		write(1, &tab_char_int[index], 1);
+		index--;
+	}
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
+		write(1, "-2147483648", 11);
+	else if (nb == 0)
+		write(1, "0", 1);
+	else if (nb < 0)
+	{
+		nb = -nb;
+		write(1, "-", 1);
+		tab_convert(nb);
+	}
+	else
+		tab_convert(nb);
+}
+
+/*
+#include <limits.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	ft_putnbr(else if (nb == 2147483647)
+		write(1, "2147483647", 10));
+	return (0);
+}
+*/
